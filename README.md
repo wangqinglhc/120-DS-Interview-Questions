@@ -10,5 +10,5 @@ Here are the answers to [120 Data Science Interview Questions](http://www.datasc
 - [Product Metrics](product-metrics.md)
 - [Communication](communication.md)
 
-The above answer some is modified based on JifuZhao's answers [JifuZhao/120-Data-Science-Interview-Questions](https://github.com/JifuZhao/120-DS-Interview-Questions).
+The above answers are modified based on JifuZhao's answers [JifuZhao/120-Data-Science-Interview-Questions](https://github.com/JifuZhao/120-DS-Interview-Questions).
 
