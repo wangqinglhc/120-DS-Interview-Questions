@@ -14,6 +14,15 @@
 - Favor simple models that run quickly and you can easily explain.
 - Mention cross validation as a means to evaluate the model.
 
+- First have a glimpse of the dataset, look at the e.g. types of features, plots of features, distributions, scatter plots ..  to understand the relation between the features and the target, and define the problem, is it a regression or classification problem, do we care more about precison or recall, etc..
+- Have a detailed study of the features, for e.g.
+  - Do we need to impute missing values? How?
+  - Do we need to drop some features or do transformation of the features?
+  - Run random forest on the dataset and look at the feature importance.
+  - Outliers
+  - If it is a classification problem, do we have a imbalanced dataset? Do SMOTE?
+- Split the data into training and testing sets, determine which model to use. Is there much multicollinearity exsiting in the data? Do we prefer accuracy over interpretation? Use cross validation to find the best hyperparameters for the model.
+
 #### 2. What could be some issues if the distribution of the test data is significantly different than the distribution of the training data?
 - The model that has high training accuracy might have low test accuracy. Without further knowledge, it is hard to know which dataset represents the population data and thus the generalizability of the algorithm is hard to measure. This should be mitigated by repeated splitting of train vs. test dataset (as in cross validation).
 - When there is a change in data distribution, this is called the dataset shift. If the train and test data has a different distribution, then the classifier would likely overfit to the train data.
