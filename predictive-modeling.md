@@ -13,7 +13,7 @@
 - Start by fitting a simple model (multivariate regression, logistic regression), do some feature engineering accordingly, and then try some complicated models. Always split the dataset into train, validation, test dataset and use cross validation to check their performance.
 - Favor simple models that run quickly and you can easily explain.
 - Mention cross validation as a means to evaluate the model.
-My anwser:
+#### My anwser:
 - First have a glimpse of the dataset, look at the e.g. types of features, plots of features, distributions, scatter plots ..  to understand the relation between the features and the target, and define the problem, is it a regression or classification problem, do we care more about precison or recall, etc..
 - Have a detailed study of the features, for e.g.
   - Do we need to impute missing values? How?
