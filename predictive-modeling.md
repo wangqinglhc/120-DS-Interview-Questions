@@ -35,6 +35,10 @@
   - Train is different from test because of temporal, spatial changes. (non-stationary environments)
 - Solution to covariate shift
   - importance weighted cv
+  
+#### My anwser:
+- The model which has high traning accuracy might have low test accuracy.
+- If the training data is selected in a biased way, the bias will be the noise that the model tries to learn, compared to the general pattern in the dataset.
 
 #### 3. What are some ways I can make my model more robust to outliers?
 - We can have regularization such as L1 or L2 to reduce variance (increase bias).
@@ -45,12 +49,24 @@
   - Winsorizing the data
   - Transforming the data (e.g. log)
   - Remove them only if you’re certain they’re anomalies and not worth predicting
+#### My anwser:
+- Modelwise:
+  - Use models that are resistant to outliers, like tree-based models.
+  - Use metrics that are robust to outliers such as MAE.
+- Datasetwise:
+  - Simply remove outliers.
+  - Transform data (log).
 
 #### 4. What are some differences you would expect in a model that minimizes squared error, versus a model that minimizes absolute error? In which cases would each error metric be appropriate?
 - MSE is more strict to having outliers. MAE is more robust in that sense, but is harder to fit the model for because it cannot be numerically optimized. So when there are less variability in the model and the model is computationally easy to fit, we should use MAE, and if that’s not the case, we should use MSE.
 - MSE: easier to compute the gradient, MAE: linear programming needed to compute the gradient
 - MAE more robust to outliers. If the consequences of large errors are great, use MSE
 - MSE corresponds to maximizing likelihood of Gaussian random variables
+#### My anwser:
+- MAE is more robust to outliers so when the impact of outliers is strong, choose MAE.
+- A model with MSE has always one solution while a model with MAS has possibly multiple solutions. 
+- A model with MSE is more statble.
+- Easier to calculate the gradient for a model with MSE.
 
 #### 5. What error metric would you use to evaluate how good a binary classifier is? What if the classes are imbalanced? What if there are more than 2 groups?
 - Accuracy: proportion of instances you predict correctly.
@@ -63,6 +79,8 @@
   - Pros: error metric based on probabilities
   - Cons: very sensitive to false positives, negatives
 - When there are more than 2 groups, we can have k binary classifications and add them up for logloss. Some metrics like AUC is only applicable in the binary case.
+#### My anwser:
+If the classes are imbalanced, we can use SMOTE upsampling to make it balanced or we can calculate a weighted accuracy. If there are more than 2 classes, the accuracy score still works but the AUC score does not. We can look at the confusion matrix..
 
 #### 6. What are various ways to predict a binary response variable? Can you compare two of them and tell me when one would be more appropriate? What’s the difference between these? (SVM, Logistic Regression, Naive Bayes, Decision Tree, etc.)
 - Things to look at: N, P, linearly separable, features independent, likely to overfit, speed, performance, memory usage and so on.
@@ -89,10 +107,13 @@
 - Deep Learning
   - works well for some classification tasks (e.g. image)
   - used to squeeze something out of the problem
+  #### My anwser:
 
 #### 7. What is regularization and where might it be helpful? What is an example of using regularization in a model?
 - Regularization is useful for reducing variance in the model, meaning avoiding overfitting.
 - For example, we can use L1 regularization in Lasso regression to penalize large coefficients and automatically select features, or we can also use L2 regularization for Ridge regression to penalize the feature coefficients.
+#### My anwser:
+- Regularization adds penalty to the magnitudes of the parameters and is often used to reduce overfitting.
 
 #### 8. Why might it be preferable to include fewer predictors over many?
 - When we add irrelevant features, it increases model's tendency to overfit because those features introduce more noise. When two variables are correlated, they might be harder to interpret in case of regression, etc.
@@ -100,6 +121,10 @@
 - adding random noise makes the model more complicated but useless
 - computational cost
 - Ask someone for more details.
+#### My anwser:
+- Irrelevant features.
+- Overfitting.
+- Multicolliearity.
 
 #### 9. Given training data on tweets and their retweets, how would you predict the number of retweets of a given tweet after 7 days after only observing 2 days worth of data?
 - Build a time series model with the training data with a seven day cycle and then use that for a new data with only 2 days data.
@@ -109,17 +134,23 @@
 - if not, we have to add features to the regression function
 - features + # of retweets on the first and the second day -> predict the seventh day
 - https://en.wikipedia.org/wiki/Dynamic_time_warping
+#### My anwser:
 
 #### 10. How could you collect and analyze data to use social media to predict the weather?
 - We can collect social media data using twitter, Facebook, instagram API’s.
 - Then, for example, for twitter, we can construct features from each tweet, e.g. the tweeted date, number of favorites, retweets, and of course, the features created from the tweeted content itself.
 - Then use a multivariate time series model to predict the weather.
 - Ask someone for more details.
+#### My anwser:
+- We can find data sources that are related to the weather, such as some outdoor service providers and use NLP to create the features.
+- We can also focuse data from some region or a fixed number of observations everyday, and construct features like number of umbrellas mentioned, number of rain metioned and so on. 
 
 #### 11. How would you construct a feed to show relevant content for a site that involves user interactions with items?
 - We can do so using building a recommendation engine.
 - The easiest we can do is to show contents that are popular other users, which is still a valid strategy if for example the contents are news articles.
 - To be more accurate, we can build a content based filtering or collaborative filtering. If there’s enough user usage data, we can try collaborative filtering and recommend contents other similar users have consumed. If there isn’t, we can recommend similar items based on vectorization of items (content based filtering).
+#### My anwser:
+- Recommendation system.
 
 #### 12. How would you design the people you may know feature on LinkedIn or Facebook?
 - Find strong unconnected people in weighted connection graph
