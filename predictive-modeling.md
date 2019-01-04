@@ -193,6 +193,8 @@ If the classes are imbalanced, we can use SMOTE upsampling to make it balanced o
 
 #### 16. Given a database of all previous alumni donations to your university, how would you predict which recent alumni are most likely to donate?
 - Based on frequency and amount of donations, graduation year, major, etc, construct a supervised regression (or binary classification) algorithm.
+#### My anwser:
+- Some macroeconomic variables? No since they are from the same time.
 
 #### 17. You’re Uber and you want to design a heatmap to recommend to drivers where to wait for a passenger. How would you approach this?
 - Based on the past pickup location of passengers around the same time of the day, day of the week (month, year), construct
