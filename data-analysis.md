@@ -60,9 +60,11 @@
 
 #### 11. Let’s say you’re given an unfeasible amount of predictors in a predictive modeling task. What are some ways to make the prediction more feasible?
   - PCA
+  - Drop unimportant ones based on domain knowledge.
+  - Use tree-based methods.
 
 #### 12. Now you have a feasible amount of predictors, but you’re fairly sure that you don’t need all of them. How would you perform feature selection on the dataset?
-  - ridge / lasso / elastic net regression
+  - Ridge regression for a linear method.
   - Univariate Feature Selection where a statistical test is applied to each feature individually. You retain only the best features according to the test outcome scores
   - Recursive Feature Elimination:  
     - First, train a model with all the feature and evaluate its performance on held out data.
@@ -75,6 +77,7 @@
 
 #### 14. You run your regression on different subsets of your data, and find that in each subset, the beta value for a certain variable varies wildly. What could be the issue here?
   - The dataset might be heterogeneous. In which case, it is recommended to cluster datasets into different subsets wisely, and then draw different models for different subsets. Or, use models like non parametric models (trees) which can deal with heterogeneity quite nicely.
+  - This means the model is unstable, might be overfitting therefore try to reduce overfitting.
 
 #### 15. What is the main idea behind ensemble learning? If I had many different models that predicted the same response variable, what might I want to do to incorporate all of the models? Would you expect this to perform better than an individual model or worse?
   - The assumption is that a group of weak learners can be combined to form a strong learner.
@@ -97,9 +100,12 @@ One very important point is to make sure that the output of your models are out-
 #### 17. How could you use GPS data from a car to determine the quality of a driver?
   - Speed
   - Driving paths
+  - Long trips, short trips, diver above speed limit, turn at a high speed etc..
 
 #### 18. Given accelerometer, altitude, and fuel usage data from a car, how would you determine the optimum acceleration pattern to drive over hills?
   - Historical data?
+  - The optimum acceleration is defined to have the best fuel usage.
+  - Cluster them into different groups based on accelerometer and altitude data, calculate the average fuel usage for each group.
 
 #### 19. Given position data of NBA players in a season’s games, how would you evaluate a basketball player’s defensive ability?
   - Evaluate his positions in the court.
